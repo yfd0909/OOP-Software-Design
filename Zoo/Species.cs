@@ -4,7 +4,7 @@ namespace Zoo
 {
     public class Species
     {
-        public string Value { get; }
+        private readonly string _value;
 
         public Species(string value)
         {
@@ -13,8 +13,10 @@ namespace Zoo
                 throw new ArgumentException(
                     "Cannot accept an empty or white space string for a species name.", nameof(value));
             }
-            Value = value;
+            _value = value;
         }
+
+        public string Value => _value;
 
         public override bool Equals(object? obj)
         {

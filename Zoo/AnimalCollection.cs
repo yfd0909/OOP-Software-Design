@@ -39,6 +39,18 @@ namespace Zoo
             return [.. _animals];
         }
 
+        public Animal? FindAnimalById(string id)
+        {
+            foreach (Animal animal in _animals)
+            {
+                if (animal.Id == id)
+                {
+                    return animal;
+                }
+            }
+            return null;
+        }
+
         public IEnumerable<Animal> FindAnimalsBySpecies(Species species)
         {
             List<Animal> results = [];

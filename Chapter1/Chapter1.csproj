@@ -8,12 +8,4 @@
     <RootNamespace>SoftwareDesign</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <EditorConfigFiles Remove="C:\Users\qazxs\Documents\projects\studies\OOP-Software-Design\Chapter1\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="C:\Users\qazxs\Documents\projects\studies\OOP-Software-Design\Chapter1\.editorconfig" />
-  </ItemGroup>
-
 </Project>

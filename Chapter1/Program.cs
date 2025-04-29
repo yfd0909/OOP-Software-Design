@@ -57,7 +57,7 @@ namespace SoftwareDesign
                     Console.WriteLine("Unknown input. Try again.");
                     continue;
                 }
-                ISort<int> sort = _sorts[index];
+                ISort<int> sort = _sorts[index - 1];
                 query = AwaitInput("Input the number of iteration.");
                 int iteration;
                 while (!int.TryParse(query, out iteration) || iteration < 1)

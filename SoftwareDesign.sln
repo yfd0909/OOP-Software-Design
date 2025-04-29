@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Proxy\Proxy.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant", "Restaurant\Restaurant.csproj", "{8F0045B2-0A27-44D4-9C34-A5B1645D285E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArithmeticCalculator", "ArithmeticCalculator\ArithmeticCalculator.csproj", "{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{8F0045B2-0A27-44D4-9C34-A5B1645D285E}.Release|x64.Build.0 = Release|Any CPU
 		{8F0045B2-0A27-44D4-9C34-A5B1645D285E}.Release|x86.ActiveCfg = Release|Any CPU
 		{8F0045B2-0A27-44D4-9C34-A5B1645D285E}.Release|x86.Build.0 = Release|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Debug|x64.Build.0 = Debug|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Debug|x86.Build.0 = Debug|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Release|x64.ActiveCfg = Release|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Release|x64.Build.0 = Release|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Release|x86.ActiveCfg = Release|Any CPU
+		{98F3FE1B-7C48-4DCF-A67B-A5991BFDB27C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

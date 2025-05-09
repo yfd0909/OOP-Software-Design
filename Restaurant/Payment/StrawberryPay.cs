@@ -23,7 +23,7 @@ namespace Restaurant.Payment
             Guid id = Guid.CreateVersion7(publishedAt);
             StrawberryPayException? exception = await IsValidCreditInformation(request);
             return exception is null
-                ? new StrawberryPaySuccessResponse(id, Publisher, publishedAt)
+                ? new StrawberryPaySuccessResponse(id, Publisher, publishedAt, request.Price)
                 : new StrawberryPayFailureResponse(id, Publisher, publishedAt, exception);
         }
 
@@ -54,14 +54,15 @@ namespace Restaurant.Payment
         }
     }
 
-    public abstract record StrawberryPayRequest(
+    public record StrawberryPayRequest(
         Guid Id,
         string Publisher,
         DateTime PublishedAt,
         string CreditCardNumber,
-        string Cvc);
+        string Cvc,
+        double Price);
 
-    public record StrawberryPayResponse(
+    public abstract record StrawberryPayResponse(
         Guid Id,
         string Publisher,
         DateTime PublishedAt);
@@ -69,7 +70,8 @@ namespace Restaurant.Payment
     public record StrawberryPaySuccessResponse(
         Guid Id,
         string Publisher,
-        DateTime PublishedAt) : StrawberryPayResponse(Id, Publisher, PublishedAt);
+        DateTime PublishedAt,
+        double Price) : StrawberryPayResponse(Id, Publisher, PublishedAt);
 
     public record StrawberryPayFailureResponse(
         Guid Id,

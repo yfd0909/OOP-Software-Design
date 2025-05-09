@@ -29,16 +29,18 @@ namespace Restaurant.Payment
                     throw new BananaPaymentException("Unauthorized credit card information provided");
                 }
             }
-            return new BananaPaymentRequest(creditCardNumber, price);
+            DateTime publishedAt = DateTime.UtcNow;
+            Guid id = Guid.CreateVersion7(publishedAt);
+            return new BananaPaymentRequest(id, creditCardNumber, cvc, price);
         }
 
         public async Task<BananaPaymentResponse> CancelPayment(BananaPaymentRequest request)
         {
             await Task.Delay(Random.Next(100, 1000));
+            await IsValidCreditInformation(request.CreditCardNumber, request.Cvc);
             DateTime publishedAt = DateTime.UtcNow;
-            Guid id = Guid.CreateVersion7(publishedAt);
             return new BananaPaymentResponse(
-                id,
+                request.Id,
                 ApiKey,
                 request.CreditCardNumber,
                 publishedAt,
@@ -48,10 +50,10 @@ namespace Restaurant.Payment
         public async Task<BananaPaymentResponse> ProceedPayment(BananaPaymentRequest request)
         {
             await Task.Delay(Random.Next(100, 1000));
+            await IsValidCreditInformation(request.CreditCardNumber, request.Cvc);
             DateTime publishedAt = DateTime.UtcNow;
-            Guid id = Guid.CreateVersion7(publishedAt);
             return new BananaPaymentResponse(
-                id,
+                request.Id,
                 ApiKey,
                 request.CreditCardNumber,
                 publishedAt,
@@ -90,7 +92,7 @@ namespace Restaurant.Payment
         }
     }
 
-    public record BananaPaymentRequest(string CreditCardNumber, long Price);
+    public record BananaPaymentRequest(Guid Id, string CreditCardNumber, string Cvc, long Price);
 
     public record BananaPaymentResponse(
         Guid Id,

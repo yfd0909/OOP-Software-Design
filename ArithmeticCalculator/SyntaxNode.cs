@@ -2,12 +2,12 @@ using System.Collections.Generic;
 
 namespace ArithmeticCalculator
 {
-    public abstract record SyntaxNode(Token Token, List<SyntaxNode> ChildrenNode)
+    public abstract record SyntaxNode(Token Token, List<SyntaxNode> ChildNodes)
     {
         public abstract int Evaluate();
     }
 
-    public record OperatorNode(Token Token, List<SyntaxNode> ChildrenNode) : SyntaxNode(Token, ChildrenNode)
+    public record OperatorNode(Token Token, List<SyntaxNode> ChildNodes) : SyntaxNode(Token, ChildNodes)
     {
         public override int Evaluate()
         {
@@ -20,7 +20,7 @@ namespace ArithmeticCalculator
             {
             case "+":
             {
-                return ChildrenNode switch
+                return ChildNodes switch
                 {
                     [SyntaxNode unaryOperand] => unaryOperand.Evaluate(),
                     [SyntaxNode leftOperand, SyntaxNode rightOperand] =>
@@ -30,7 +30,7 @@ namespace ArithmeticCalculator
             }
             case "-":
             {
-                return ChildrenNode switch
+                return ChildNodes switch
                 {
                     [SyntaxNode unaryOperand] => -unaryOperand.Evaluate(),
                     [SyntaxNode leftOperand, SyntaxNode rightOperand] =>
@@ -40,7 +40,7 @@ namespace ArithmeticCalculator
             }
             case "*":
             {
-                return ChildrenNode switch
+                return ChildNodes switch
                 {
                     [SyntaxNode leftOperand, SyntaxNode rightOperand] =>
                         leftOperand.Evaluate() * rightOperand.Evaluate(),
@@ -49,7 +49,7 @@ namespace ArithmeticCalculator
             }
             case "/":
             {
-                return ChildrenNode switch
+                return ChildNodes switch
                 {
                     [SyntaxNode unaryOperand] => unaryOperand.Evaluate(),
                     [SyntaxNode leftOperand, SyntaxNode rightOperand] =>

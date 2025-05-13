@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace ArithmeticCalculator
@@ -14,11 +15,17 @@ namespace ArithmeticCalculator
 
         private static void Main(string[] args)
         {
+            List<ITokenGeneratorStrategy> tokenGeneratorStrategies = [
+                new OperatorTokenGeneratorStrategy(),
+                new ParenthesisTokenGeneratorStrategy(),
+                new NumberTokenGeneratorStrategy()
+            ];
             foreach (string testCase in TestCases)
             {
-                TokenGenerator tokenGenerator = new(testCase);
+                TokenGenerator tokenGenerator = new(testCase, tokenGeneratorStrategies);
                 SyntaxTreeBuilder builder = new(tokenGenerator.Generate());
                 SyntaxNode topNode = builder.Build();
+                Console.WriteLine(topNode);
                 Console.WriteLine($"Evaluate \"{testCase}\": {topNode.Evaluate()}");
             }
         }

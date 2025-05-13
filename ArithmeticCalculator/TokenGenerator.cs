@@ -1,52 +1,26 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ArithmeticCalculator
 {
-    public class TokenGenerator(string expression)
+    public class TokenGenerator(string expression, IEnumerable<ITokenGeneratorStrategy> tokenGeneratorStrategies)
     {
         public List<Token> Generate()
         {
             List<Token> tokens = [];
             for (int i = 0; i < expression.Length;)
             {
-                char ch = expression[i];
-                if (char.IsWhiteSpace(ch))
+                if (char.IsWhiteSpace(expression[i]))
                 {
                     i++;
                     continue;
                 }
-                if (ch == '(' || ch == ')')
-                {
-                    ParenthesisType parenthesisType = ch == '('
-                        ? ParenthesisType.Open
-                        : ParenthesisType.Close;
-                    tokens.Add(new ParenthesisToken(ch.ToString(), parenthesisType));
-                    i++;
-                    continue;
-                }
-                if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
-                {
-                    string stringValue = ch.ToString();
-                    tokens.Add(new OperatorToken(stringValue, stringValue));
-                    i++;
-                    continue;
-                }
-                if (char.IsDigit(ch))
-                {
-                    StringBuilder builder = new();
-                    while (i < expression.Length && char.IsDigit(ch = expression[i]))
-                    {
-                        builder.Append(ch);
-                        i++;
-                    }
-                    string stringValue = builder.ToString();
-                    int intValue = int.Parse(stringValue);
-                    tokens.Add(new NumberToken(stringValue, intValue));
-                    continue;
-                }
-                throw new ArgumentException($"Cannot parse the expression: {expression}");
+                ITokenGeneratorStrategy tokenGeneratorStrategy = tokenGeneratorStrategies.FirstOrDefault(strategy => strategy.CanGenerate(expression, i))
+                    ?? throw new ArgumentException($"Cannot parse the expression: {expression}");
+                Token token = tokenGeneratorStrategy.Generate(expression, ref i);
+                tokens.Add(token);
             }
             return tokens;
         }

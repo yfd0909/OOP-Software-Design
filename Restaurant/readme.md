@@ -47,3 +47,7 @@
 결제 서비스 구현 목록
 - [BananaPayment](./Payment/BananaPaymentGateway.cs)
 - [StrawberryPay](./Payment/StrawberryPay.cs)
+
+# 추가 사항
+
+결제 시 이벤트 행사 대상에게 할인을 유연하게 적용할 수 있도록 한다.

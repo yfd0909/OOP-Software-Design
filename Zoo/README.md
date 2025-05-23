@@ -3,11 +3,13 @@
 <pre>
 <code>
 1.
-<Animal 클래스> : _id, _name, _species 멤버 필드로 구성되어 생성자로 데이터를 저장하고 Equals 함수를 통해 오브젝트가 Animal 인지 확인한다. GetHashCode 함수를 public 으로 만들어서 id, name, species 값들을 정수값으로 만들어 반환하도록 하여 데이터를 비교하기 쉽도록 만든 것 같다.
-<AnimalCollection 클래스> : 리스트를 만들어서 Animal 객체들을 저장하도록 만들었다. 추가하려는 Animal 객체가 이미 존재하면 false, 없다면 추가하고 true 반환하여 저장함. 제거 함수도 있음. 각각 id, name, species 에 따라 데이터를 찾는 FindAnimalBy ~~ 함수들이 존재한다. FindAllAnimals 함수는 
-[.. 변수이름] 이런 식으로 쓰는 것을 처음 봤는데 알아보니 C# 의 '컬렉션 식 기능' 을 이용해서 
-_animals 에 있는 항목들을 얕은 복사를 하여 새로운 컬렉션으로 만들어 반환하는 방식이다.
-<Application 클래스> : 전반적으로 눈에 보이는 출력을 담당하는 클래스로 유저가 선택할 메뉴를 출력하고 P, A, Q 키를 입력 받음에 따라 Animal 출력, Animal 추가, 프로그램 종료를 하는 방식.
+<Animal 클래스> : _id, _name, _species 멤버 필드로 구성되어 생성자로 데이터를 저장하고 Equals 함수를 통해 오브젝트가 Animal 인지 확인한다. 
+GetHashCode 함수를 public 으로 만들어서 id, name, species 값들을 정수값으로 만들어 반환하도록 하여 데이터를 비교하기 쉽도록 만든 것 같다.
+<AnimalCollection 클래스> : 리스트를 만들어서 Animal 객체들을 저장하도록 만들었다. 추가하려는 Animal 객체가 이미 존재하면 false, 없다면 추가하고 true 반환하여 저장함. 
+제거 함수도 있음. 각각 id, name, species 에 따라 데이터를 찾는 FindAnimalBy ~~ 함수들이 존재한다. FindAllAnimals 함수는 [.. 변수이름] 이런 식으로 쓰는 것을 처음 
+봤는데 알아보니 C# 의 '컬렉션 식 기능' 을 이용해서 _animals 에 있는 항목들을 얕은 복사를 하여 새로운 컬렉션으로 만들어 반환하는 방식이다.
+<Application 클래스> : 전반적으로 눈에 보이는 출력을 담당하는 클래스로 유저가 선택할 메뉴를 출력하고 P, A, Q 키를 입력 받음에 따라 Animal 출력, Animal 추가, 프로그램 
+종료를 하는 방식.
 <Program 클래스> : 어플리케이션을 시작.
 <Species 클래스> : species 클래스 객체를 생성할 때 문자열이 잘못된 것을 방지하고 비교하는 등의 방식으로 제대로 된 불변성있는 개체 생성을 하게 함.
 

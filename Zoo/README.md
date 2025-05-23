@@ -1,7 +1,5 @@
 ### 객지 스터디 1주차 과제
 
-<pre>
-<code>
 1.
 <Animal 클래스> : _id, _name, _species 멤버 필드로 구성되어 생성자로 데이터를 저장하고 Equals 함수를 통해 오브젝트가 Animal 인지 확인한다. 
 GetHashCode 함수를 public 으로 만들어서 id, name, species 값들을 정수값으로 만들어 반환하도록 하여 데이터를 비교하기 쉽도록 만든 것 같다.
@@ -30,5 +28,3 @@ using system.IO 를 해줘야 한다고 함.
 4.
 Animal 클래스의 멤버 필드에 더 넣고 싶은 요소를 추가하기 용이하고 (성별이나 나이같은 요소) 
 AnimalCollection 에서 원하는 자료를 찾는 방식도 비슷한 메서드를 응용해서 쉽게 확장할 수 있을 거 같다.
-</code>
-</pre>

@@ -16,6 +16,7 @@ public class OrderItem
             Quantity = newQuantity;
         }
     }
+    //예외처리 추가
 
     public decimal TotalPrice => Item.Price * Quantity;
 

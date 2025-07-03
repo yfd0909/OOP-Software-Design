@@ -6,6 +6,7 @@ namespace Restaurant
     {
         private static Menu menu = new();
         private static Cart cart = new();
+        private static Display Display = new();
 
         private static void Main()
         {
@@ -18,7 +19,8 @@ namespace Restaurant
             {
                 Console.Clear();
                 Console.WriteLine("메인 메뉴");
-                menu.DisplayMenu();
+
+                Display.DisplayMenu(menu.Items);
 
                 Console.WriteLine("\n주문하실 메뉴 번호를 입력해주세요.");
                 Console.WriteLine("0: 종료 | 100: 장바구니 이동 | 200: 결제하기");
@@ -80,7 +82,8 @@ namespace Restaurant
             {
                 Console.Clear();
                 Console.WriteLine("현재 장바구니:");
-                cart.DisplayCart();
+
+                Display.DisplayCart(cart.Items, cart);
 
                 Console.WriteLine("\n1. 항목 삭제");
                 Console.WriteLine("2. 수량 변경");

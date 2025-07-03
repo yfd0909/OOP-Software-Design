@@ -5,7 +5,7 @@ using System.Linq;
 public class Cart
 {
     private readonly List<OrderItem> _items = new(); //장바구니 리스트
-
+    public IReadOnlyList<OrderItem> Items => _items.AsReadOnly();
     public void AddItem(MenuItem item, int quantity)
     {
         //장바구니에 같은 거 있나 확인용
@@ -20,6 +20,7 @@ public class Cart
         }
     }
 
+    //같은 이름 다른 메뉴인 경우?
     public void RemoveItem(string name)
     {
         _items.RemoveAll(i => i.Item.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
@@ -34,15 +35,6 @@ public class Cart
         }
     }
 
-    public void DisplayCart()
-    {
-        Console.WriteLine("장바구니:");
-        foreach (var item in _items)
-        {
-            Console.WriteLine(item);
-        }
-        Console.WriteLine($"총 금액: {GetTotalAmount():C}");
-    }
 
     public decimal GetTotalAmount()
     {
